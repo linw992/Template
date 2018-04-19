@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="5"
+    name="LinMvpActivity"
+    minApi="7"
+    minBuildApi="14"
+    description="Mvp Activity">
+
+    <category value="linw9" />
+    <formfactor value="Mobile" />
+
+    <!-- input data -->
+    
+
+    <parameter
+        id="activityClass"
+        name="Activity Name"
+        type="string"
+		constraints="class|unique|nonempty"
+		suggest="${layoutToActivity(layoutName)}"
+        default="MvpActivity"
+        help="" />
+
+    <parameter
+        id="layoutName"
+        name="Layout Name"
+        type="string"
+		constraints="layout|unique|nonempty"
+        suggest="${activityToLayout(activityClass)}"
+        default="activity_mvp"
+        help="" />
+
+    <parameter
+        id="titleName"
+        name="Title Name"
+        type="string"
+        default="Title"
+        help="" />
+
+    <!-- 128x128 thumbnails relative to com.puke.template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_cover.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
